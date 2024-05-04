@@ -7,7 +7,10 @@ public class Player {
 
     public Player(){}
 
-    public Player(int health, int strength, int attack){
+    public Player(int health, int strength, int attack) throws Exception {
+        if (health < 0 || strength < 0 || attack < 0){
+            throw new Exception("Attributes cannot be negative");
+        }
         this.health = health;
         this.strength = strength;
         this.attack = attack;

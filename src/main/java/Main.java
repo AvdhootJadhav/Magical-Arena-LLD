@@ -1,5 +1,18 @@
-public class Main {
-    public static void main(String[] args) {
+import models.Match;
+import models.Player;
 
+public class Main {
+
+    public static void main(String[] args) {
+        try {
+            Player firstPlayer = new Player(100, 5, 1);
+            Player secondPlayer = new Player(50, 5, 10);
+
+            Match match = new Match();
+            String results = match.startFight(firstPlayer, secondPlayer);
+            System.out.println("Match Winner : "+results);
+        } catch (Exception e) {
+            System.out.println(e.getLocalizedMessage());
+        }
     }
 }
