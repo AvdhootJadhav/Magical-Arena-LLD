@@ -5,7 +5,7 @@ public class Main {
 
     public static void main(String[] args) {
         try {
-            Player firstPlayer = new Player(100, 5, 1);
+            Player firstPlayer = new Player(100, 10, 5);
             Player secondPlayer = new Player(50, 5, 10);
 
             Arena arena = new Arena();

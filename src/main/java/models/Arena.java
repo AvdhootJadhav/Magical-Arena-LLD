@@ -18,15 +18,9 @@ public class Arena {
         int round = 1;
         while (attackPlayer.getHealth() > 0 && defensePlayer.getHealth() > 0){
             if (round % 2 != 0){
-                int updatedHealth = PlayerActions.getUpdatedHealth(attackPlayer, defensePlayer);
-                if (updatedHealth > 0 || updatedHealth == 0){
-                    defensePlayer.setHealth(updatedHealth);
-                }
+                PlayerActions.performActionsAndUpdateHealth(attackPlayer, defensePlayer);
             } else {
-                int updatedHealth = PlayerActions.getUpdatedHealth(defensePlayer, attackPlayer);
-                if (updatedHealth >= 0){
-                    attackPlayer.setHealth(updatedHealth);
-                }
+                PlayerActions.performActionsAndUpdateHealth(defensePlayer, attackPlayer);
             }
             round++;
         }

@@ -4,7 +4,7 @@ import models.Player;
 
 public class PlayerActions {
 
-    public static int getUpdatedHealth(Player firstPlayer, Player secondPlayer){
+    public static void performActionsAndUpdateHealth(Player firstPlayer, Player secondPlayer){
         System.out.println(firstPlayer);
         System.out.println(secondPlayer);
         int attackDamage = calculateDamage(firstPlayer);
@@ -15,20 +15,23 @@ public class PlayerActions {
         if (attackDamage > defensePower){
             int updatedHealth = secondPlayer.getHealth() - (attackDamage - defensePower);
             if (updatedHealth > 0){
-                return updatedHealth;
+                secondPlayer.setHealth(updatedHealth);
             } else if (updatedHealth < 0){
-                return 0;
+                secondPlayer.setHealth(0);
             }
         }
-        return -1;
     }
 
     private static int calculateDamage(Player player){
-        return rollDie()*player.getAttack();
+        int num = rollDie();
+        System.out.println("Attack roll : "+num);
+        return num*player.getAttack();
     }
 
     private static int calculateDefense(Player player){
-        return rollDie()*player.getStrength();
+        int num = rollDie();
+        System.out.println("Defense Roll : "+num);
+        return num*player.getStrength();
     }
 
     private static int rollDie() {
