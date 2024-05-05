@@ -5,8 +5,10 @@ import models.Player;
 public class PlayerActions {
 
     public static void performActionsAndUpdateHealth(Player firstPlayer, Player secondPlayer){
-        int attackDamage = calculateDamage(firstPlayer);
-        int defensePower = calculateDefense(secondPlayer);
+        int attackPlayerRoll = rollDie();
+        int attackDamage = calculateDamage(firstPlayer, attackPlayerRoll);
+        int defendPlayerRoll = rollDie();
+        int defensePower = calculateDefense(secondPlayer, defendPlayerRoll);
 
         try {
             if (attackDamage > defensePower){
@@ -22,13 +24,11 @@ public class PlayerActions {
         }
     }
 
-    private static int calculateDamage(Player player){
-        int num = rollDie();
+    private static int calculateDamage(Player player, int num){
         return num*player.getAttack();
     }
 
-    private static int calculateDefense(Player player){
-        int num = rollDie();
+    private static int calculateDefense(Player player, int num){
         return num*player.getStrength();
     }
 
