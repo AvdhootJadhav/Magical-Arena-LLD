@@ -11,14 +11,17 @@ public class PlayerActions {
         int defensePower = calculateDefense(secondPlayer);
 
         System.out.println("Attack : "+attackDamage+" Defense : "+defensePower);
-
-        if (attackDamage > defensePower){
-            int updatedHealth = secondPlayer.getHealth() - (attackDamage - defensePower);
-            if (updatedHealth > 0){
-                secondPlayer.setHealth(updatedHealth);
-            } else if (updatedHealth < 0){
-                secondPlayer.setHealth(0);
+        try {
+            if (attackDamage > defensePower){
+                int updatedHealth = secondPlayer.getHealth() - (attackDamage - defensePower);
+                if (updatedHealth > 0){
+                    secondPlayer.setHealth(updatedHealth);
+                } else if (updatedHealth < 0){
+                    secondPlayer.setHealth(0);
+                }
             }
+        } catch (Exception e){
+            System.out.println(e.getLocalizedMessage());
         }
     }
 

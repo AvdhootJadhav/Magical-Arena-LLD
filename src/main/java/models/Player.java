@@ -20,7 +20,8 @@ public class Player {
         return health;
     }
 
-    public void setHealth(int health) {
+    public void setHealth(int health) throws Exception {
+        validateAttribute(health, "health");
         this.health = health;
     }
 
@@ -28,7 +29,8 @@ public class Player {
         return strength;
     }
 
-    public void setStrength(int strength) {
+    public void setStrength(int strength) throws Exception {
+        validateAttribute(strength, "strength");
         this.strength = strength;
     }
 
@@ -36,8 +38,15 @@ public class Player {
         return attack;
     }
 
-    public void setAttack(int attack) {
+    public void setAttack(int attack) throws Exception {
+        validateAttribute(attack, "attack");
         this.attack = attack;
+    }
+
+    private void validateAttribute(int attribute, String name) throws Exception {
+        if (attribute < 0){
+            throw new Exception(String.format("'%s' attribute cannot be negative", name));
+        }
     }
 
     @Override
