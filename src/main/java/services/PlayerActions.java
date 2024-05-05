@@ -5,8 +5,6 @@ import models.Player;
 public class PlayerActions {
 
     public static void performActionsAndUpdateHealth(Player firstPlayer, Player secondPlayer){
-        System.out.println(firstPlayer);
-        System.out.println(secondPlayer);
         int attackDamage = calculateDamage(firstPlayer);
         int defensePower = calculateDefense(secondPlayer);
 

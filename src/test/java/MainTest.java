@@ -1,4 +1,5 @@
 import models.PlayerTest;
+import services.ArenaTest;
 import services.PlayerActionsTest;
 
 public class MainTest {
@@ -17,6 +18,10 @@ public class MainTest {
         // testing PlayerActions
         PlayerActionsTest playerActionsTest = new PlayerActionsTest();
         playerActionsTest.testPerformActionsAndUpdateHealth();
+
+        //testing Arena
+        ArenaTest arenaTest = new ArenaTest();
+        arenaTest.testStartMatch();
 
         System.out.println("All tests passed!!");
     }
