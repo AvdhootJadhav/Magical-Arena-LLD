@@ -1,6 +1,6 @@
 package models;
 
-public class PlayerTest {
+public class PlayerTest extends BaseTest {
     public void testPlayerConstructor(){
         try {
             Player player = new Player(100, 5, 10);
@@ -85,10 +85,5 @@ public class PlayerTest {
         } catch (Exception | AssertionError e) {
             fail("PlayerToString",e.getLocalizedMessage());
         }
-    }
-
-    private static void fail(String testName, String message){
-        System.err.printf("%s Test failed : %s%n", testName, message);
-        System.exit(1);
     }
 }

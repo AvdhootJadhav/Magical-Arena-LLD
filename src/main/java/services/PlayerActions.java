@@ -10,7 +10,6 @@ public class PlayerActions {
         int attackDamage = calculateDamage(firstPlayer);
         int defensePower = calculateDefense(secondPlayer);
 
-        System.out.println("Attack : "+attackDamage+" Defense : "+defensePower);
         try {
             if (attackDamage > defensePower){
                 int updatedHealth = secondPlayer.getHealth() - (attackDamage - defensePower);
@@ -27,13 +26,11 @@ public class PlayerActions {
 
     private static int calculateDamage(Player player){
         int num = rollDie();
-        System.out.println("Attack roll : "+num);
         return num*player.getAttack();
     }
 
     private static int calculateDefense(Player player){
         int num = rollDie();
-        System.out.println("Defense Roll : "+num);
         return num*player.getStrength();
     }
 
