@@ -1,6 +1,6 @@
-package models;
+package services;
 
-import utils.PlayerActions;
+import models.Player;
 
 public class Arena {
 

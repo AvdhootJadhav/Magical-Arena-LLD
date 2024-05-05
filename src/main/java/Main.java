@@ -1,4 +1,4 @@
-import models.Arena;
+import services.Arena;
 import models.Player;
 
 public class Main {
